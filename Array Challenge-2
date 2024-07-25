@@ -1,0 +1,15 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+    int N;
+    std::cin >> N;
+    std::vector<int> Arr(N);
+    for(int i = 0; i < N; ++i) std::cin >> Arr[i];
+    
+    int count = 1, maxVal = Arr[0];
+    for(int i = 1; i < N; ++i) if(Arr[i] > maxVal) { count++; maxVal = Arr[i]; }
+    
+    std::cout << count << std::endl;
+    return 0;
+}
