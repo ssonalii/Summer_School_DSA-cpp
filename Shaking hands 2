@@ -1,1 +1,16 @@
-https://www.hackerrank.com/contests/miet2024/challenges/shaking-hands-2-1
+#include<iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    int handshakes = 0;
+    for(int i = 1; i < n; i++) {
+        handshakes += i;
+    }
+
+    cout << handshakes << endl;
+
+    return 0;
+}
