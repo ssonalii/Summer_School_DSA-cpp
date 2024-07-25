@@ -1,0 +1,35 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int R, C;
+    cin >> R >> C;
+
+    vector<vector<int>> parkingLot(R, vector<int>(C));
+    for (int i = 0; i < R; ++i) {
+        for (int j = 0; j < C; ++j) {
+            cin >> parkingLot[i][j];
+        }
+    }
+
+    int maxFullSpaces = 0;
+    int rowWithMostFullSpaces = 0;
+
+    for (int i = 0; i < R; ++i) {
+        int fullSpacesCount = 0;
+        for (int j = 0; j < C; ++j) {
+            if (parkingLot[i][j] == 1) {
+                ++fullSpacesCount;
+            }
+        }
+        if (fullSpacesCount > maxFullSpaces) {
+            maxFullSpaces = fullSpacesCount;
+            rowWithMostFullSpaces = i + 1; // Rows are 1-indexed
+        }
+    }
+
+    cout << rowWithMostFullSpaces << endl;
+
+    return 0;
+}
