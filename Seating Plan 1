@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+    while (T--) {
+        int N;
+        cin >> N;
+        int facingSeat;
+        string seatType;
+        int pos = (N - 1) % 12 + 1;
+        switch (pos) {
+            case 1: facingSeat = N + 11; seatType = "WS"; break;
+            case 2: facingSeat = N + 9;  seatType = "MS"; break;
+            case 3: facingSeat = N + 7;  seatType = "AS"; break;
+            case 4: facingSeat = N + 5;  seatType = "AS"; break;
+            case 5: facingSeat = N + 3;  seatType = "MS"; break;
+            case 6: facingSeat = N + 1;  seatType = "WS"; break;
+            case 7: facingSeat = N - 1;  seatType = "WS"; break;
+            case 8: facingSeat = N - 3;  seatType = "MS"; break;
+            case 9: facingSeat = N - 5;  seatType = "AS"; break;
+            case 10: facingSeat = N - 7; seatType = "AS"; break;
+            case 11: facingSeat = N - 9; seatType = "MS"; break;
+            case 12: facingSeat = N - 11; seatType = "WS"; break;
+        }
+        cout << seatType << " " << facingSeat << endl;
+    }
+    return 0;
+}
