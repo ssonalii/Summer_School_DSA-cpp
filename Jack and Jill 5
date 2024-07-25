@@ -1,0 +1,54 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int play_the_game(vector<int>& target, int arraySize) {
+    int operations = 0;
+
+    while (true) {
+        bool allZero = true;
+        bool allEven = true;
+
+        for (int i = 0; i < arraySize; i++) {
+            if (target[i] != 0) {
+                allZero = false;
+            }
+            if (target[i] % 2 != 0) {
+                allEven = false;
+            }
+        }
+
+        if (allZero) break;
+
+        if (allEven) {
+            for (int i = 0; i < arraySize; i++) {
+                target[i] /= 2;
+            }
+            operations++;
+        } else {
+            for (int i = 0; i < arraySize; i++) {
+                if (target[i] % 2 != 0) {
+                    target[i]--;
+                    operations++;
+                }
+            }
+        }
+    }
+
+    return operations;
+}
+
+int main() {
+    int arraySize;
+    cin >> arraySize;
+
+    vector<int> target(arraySize);
+    for (int i = 0; i < arraySize; i++) {
+        cin >> target[i];
+    }
+
+    int result = play_the_game(target, arraySize);
+    cout << result << endl;
+
+    return 0;
+}
