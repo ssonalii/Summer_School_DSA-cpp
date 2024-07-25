@@ -1,0 +1,28 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    int N1, N2;
+    cin >> N1;
+    vector<int> g(N1);
+    for (int &x : g) cin >> x;
+    
+    cin >> N2;
+    vector<int> s(N2);
+    for (int &x : s) cin >> x;
+
+    sort(g.begin(), g.end());
+    sort(s.begin(), s.end());
+
+    auto it = s.begin();
+    int happy_children = count_if(g.begin(), g.end(), [&](int x) {
+        it = find_if(it, s.end(), [x](int y) { return y >= x; });
+        return it != s.end() && ++it;
+    });
+
+    cout << happy_children << endl;
+    return 0;
+}
