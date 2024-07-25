@@ -1,0 +1,36 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int main() {
+    int T;
+    cin>>T;
+
+    while (T--) {
+        int green_cost, purple_cost;
+        cin>>green_cost>>purple_cost;
+
+        int n;
+        cin>>n;
+        int cost1 = 0, cost2 = 0, c1=0,c2=0;
+
+        
+        for (int i = 0; i < n; ++i) {
+            int problem1, problem2;
+            cin>>problem1>>problem2;
+
+            if (problem1 == 1) {
+                c1++;
+            }
+            if (problem2 == 1) {
+                c2++;
+            }
+        }
+        cost1=c1*green_cost+c2*purple_cost;
+        cost2=c1*purple_cost + c2*green_cost;
+        int min_cost = min(cost1,cost2);
+        cout<<min_cost<<endl;
+    }
+}
