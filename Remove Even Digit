@@ -1,0 +1,20 @@
+using namespace std;
+
+int main() {
+    string N;
+    cin >> N;
+    string result = "";
+
+    for (char c : N) {
+        if (c != '0' && c != '2' && c != '4' && c != '6' && c != '8') {
+            result += c;
+        }
+    }
+
+    if (result.empty()) {
+        result = "0";
+    }
+
+    cout << result << endl;
+    return 0;
+}
