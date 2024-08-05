@@ -1,0 +1,17 @@
+class Solution
+{
+public:
+void moveZeroes(vector<int>& nums) 
+{ 
+ vector<int>num;
+        for(int a=0;a<nums.size();a++)
+{
+        if(nums[a]!=0) num.push_back(a);
+}
+      for(int a=0;a<num.size();a++){
+          nums[a]=nums[num[a]];
+      }
+for(int a=num.size();a<nums.size();a++){
+      nums[a]=0;
+      } } };
+      
