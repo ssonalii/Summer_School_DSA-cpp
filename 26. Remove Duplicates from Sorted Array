@@ -1,0 +1,18 @@
+class Solution {
+public:
+
+        
+    int removeDuplicates(vector<int>& A) {
+        
+        int i=0, m=0, j=A.size();
+
+        while(m<j)
+        {
+            if(A[i]!=A[m])
+                swap(A[++i],A[m++]);
+            else 
+                m++;
+        }
+        return ++i;
+    }
+};
