@@ -1,0 +1,16 @@
+class Solution {
+public:
+int maxProfit(vector<int>& prices) 
+{
+int buy = prices[0];
+int maxprofit = 0;
+for (int a= 1;a < prices.size();a++)
+{
+if (prices[a] < buy)
+{
+buy = prices[a];
+}
+else if (prices[a] - buy > maxprofit) 
+{
+maxprofit = prices[a] - buy;}}
+return maxprofit;}};
